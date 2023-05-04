@@ -14,7 +14,8 @@ Twitch chat bot that takes attendance
 Built using Firestore and Node.js
 </p>
 
-Demo: https://www.twitch.tv/klm9031
+<p>API available at: https://yunibxxbot.herokuapp.com/  (Nudge bot to be online)</p>
+<p>Channel Demo: https://www.twitch.tv/klm9031</p>
 
 Available Chat Commands: `!present` or `!hello`
 
@@ -23,4 +24,5 @@ Available Chat Commands: `!present` or `!hello`
 - [ ] Extend Usage to other channels
 - [ ] Add more commands
 - [ ] Add channel dashboard
-- [ ] Fix attendance bug
+- [ ] Fix attendance calculation bug
+- [ ] Streamer goes online webhook 
