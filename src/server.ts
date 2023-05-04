@@ -116,4 +116,4 @@ const attendance = await trackAttendance(newChannel, newUser);
 });
 
 
-app.listen(PORT, () => console.log('API is running'));
+app.listen(PORT, () => console.log('API is running', PORT));
