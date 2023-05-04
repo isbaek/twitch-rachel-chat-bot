@@ -27,7 +27,7 @@ app.use(passport.initialize());
 passport.use(new twitchStrategy.Strategy({
   clientID: process.env.TWITCH_CLIENT_ID,
   clientSecret: process.env.TWITCH_CLIENT_SECRET,
-  callbackURL: "http://localhost:8080/auth/twitch/callback",
+  callbackURL: process.env.NODE_ENV == 'production' ? `${process.env.API_URL}/auth/twitch/callback` : `http://localhost:8080/auth/twitch/callback`,
   scope: "channel:moderate chat:edit chat:read"
 },
 async function(accessToken, refreshToken, profile, done) {
@@ -94,7 +94,7 @@ client.on('message', async (channel, tags, message, self) => {
 if (self) return;
 
 if (message.toLowerCase() === '!hello') {
-client.deletemessage(channel, tags.id);
+client.say(channel, `@${tags.username}, hey, how are you doing?`);
 }
 
 if (message.toLowerCase() === '!present' || message.toLowerCase() === '!출첵') {
@@ -115,4 +115,4 @@ const attendance = await trackAttendance(newChannel, newUser);
 });
 
 
-app.listen(8080, () => console.log('API is running on http://localhost:8080'));
+app.listen(8080, () => console.log('API is running'));
