@@ -98,6 +98,7 @@ client.deletemessage(channel, tags.id);
 }
 
 if (message.toLowerCase() === '!present' || message.toLowerCase() === '!출첵') {
+ 
 const newUser: User = new User();
 newUser.username = tags.username;
 newUser.twitch_user_id = tags['user-id'];
@@ -107,7 +108,8 @@ const newChannel: Channel = new Channel();
 newChannel.channel_id = channel.slice(1);
 newChannel.channel_name = channel.slice(1);
 const attendance = await trackAttendance(newChannel, newUser);
-if (attendance > 0) client.say(channel, `@${tags.username}, welcome back for the ${attendance} times!`);
+  if (attendance > 0) client.say(channel, `@${tags.username}, welcome back for the ${attendance} times!`);
+  else client.say(channel, `@${tags.username}, welcome to my channel!`);
 }
 
 });
