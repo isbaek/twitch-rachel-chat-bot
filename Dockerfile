@@ -1,4 +1,7 @@
 FROM node:18-alpine
 
-RUN npm install
+EXPOSE 8080
+WORKDIR /app
+RUN npm ci --omit=dev
+COPY .
 CMD ["npm", "run", "start"]
