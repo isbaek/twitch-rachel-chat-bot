@@ -13,8 +13,9 @@ import twitchStrategy from 'passport-twitch-new';
 
 import { readOrCreateWithId } from './controllers/firestore';
 
-
+const PORT = process.env.PORT || 8080;
 const app = express();
+
 
 // const regexpCommand = new RegExp(/^!([a-zA-Z0-9]+)(?:\W+)?(.*)?/);
 
@@ -115,4 +116,4 @@ const attendance = await trackAttendance(newChannel, newUser);
 });
 
 
-app.listen(8080, () => console.log('API is running'));
+app.listen(PORT, () => console.log('API is running'));
